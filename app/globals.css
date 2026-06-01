@@ -1,0 +1,158 @@
+/* app/globals.css — Terminal Glass Design System
+ * Konsep B: Raycast × Linear × Glassmorphism
+ * Font: Inter (Google Fonts, Variable)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import "tailwindcss";
+
+/* ─── CSS Custom Properties (Design Tokens) ──────────────── */
+:root {
+  /* Canvas & Surface */
+  --canvas:          #07080a;
+  --surface-1:       #0d0d0d;
+  --surface-2:       #101111;
+  --surface-card:    #121212;
+
+  /* Hairlines */
+  --hairline:        #242728;
+  --hairline-soft:   rgba(255, 255, 255, 0.06);
+  --hairline-strong: rgba(255, 255, 255, 0.14);
+
+  /* Text */
+  --ink:             #f4f4f6;
+  --body:            #cdcdcd;
+  --mute:            #9c9c9d;
+  --ash:             #6a6b6c;
+
+  /* Accent — Lavender-Indigo */
+  --accent:          #5e6ad2;
+  --accent-hover:    #818cf8;
+  --accent-soft:     rgba(94, 106, 210, 0.12);
+  --accent-border:   rgba(94, 106, 210, 0.28);
+
+  /* Glass */
+  --glass-bg:        rgba(13, 13, 13, 0.72);
+  --glass-border:    rgba(255, 255, 255, 0.07);
+
+  /* Gradient hero */
+  --hero-start:      rgba(94, 106, 210, 0.22);
+  --hero-end:        rgba(129, 140, 248, 0.06);
+}
+
+/* ─── Base Reset & Body ──────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Prevent iOS auto-zoom on input — body font must be ≥16px */
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  /* Smoother font rendering on dark backgrounds */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Respect system preference for reduced motion */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;  /* dvh instead of 100vh — mobile browser safe */
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Raycast's signature: ss03 = alternate 'g' glyph */
+  font-feature-settings: "calt", "kern", "liga", "ss03";
+  line-height: 1.5;
+  /* Touch: remove 300ms delay on tap */
+  touch-action: manipulation;
+}
+
+/* ─── Touch Interaction Optimization ────────────────────── */
+/* Tap target: all interactive elements */
+a, button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* ─── Focus Ring — Accessible, on-brand ─────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Remove focus ring for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ─── Selection ──────────────────────────────────────────── */
+::selection {
+  background-color: rgba(94, 106, 210, 0.3);
+  color: #f4f4f6;
+}
+
+/* ─── Scrollbar (Desktop) — subtle dark ─────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hairline);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ash);
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Glass morphism utility ─────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+}
+
+/* ─── Hero gradient (used once at top of page) ───────────── */
+.hero-glow {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% -10%,
+    var(--hero-start),
+    transparent 70%
+  );
+}
+
+/* ─── Noise texture overlay (subtle grain on glass card) ─── */
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
