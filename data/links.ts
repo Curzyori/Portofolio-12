@@ -46,10 +46,18 @@ export interface LinkSection {
 // === Profil ===
 export const profile = {
   name: "Yuken Velino",
-  username: "@curzy.my.id",
-  bio: "Full Stack Developer · Building things from Project 1 to 12.",
-  avatarUrl: "/avatar.jpg", // taruh foto di public/avatar.jpg
+  username: "@Curzyori",
+  role: "Full-Stack Developer | Informatics Student | Automation Enthusiast",
+  tagline: "Building Digital Solutions 🚀 | Automating Everything I Can ⚙️ | Learning Never Stops 📚",
+  philosophy: "Hasil Adalah Segalanya",
+  avatarUrl: "/avatar.jpg",
   domain: "curzy.my.id",
+  techStack: {
+    languages: ["JavaScript", "TypeScript", "Python", "HTML5", "CSS3"],
+    frontend: ["React", "Next.js", "Vite", "Tailwind CSS"],
+    backend: ["Node.js", "Express", "Supabase", "MySQL"],
+    devops: ["Vercel", "Cloudflare", "Nginx", "Git", "Linux Ubuntu", "Antigravity IDE", "Obsidian", "Resend", "GitHub"],
+  },
 };
 
 // === Sections ===
@@ -63,7 +71,7 @@ export const sections: LinkSection[] = [
         label: "Curzy Cloud",
         url: "https://www.whatsapp.com/channel/0029Vb0n6QmFsn0df3zW6o3v",
         icon: "fa-cloud",
-        description: "Layanan Game Server Hosting (Minecraft Java/Bedrock) dan script custom automation yang beroperasi penuh pada periode 2024-2026. Platform ini memanfaatkan arsitektur Pterodactyl Panel, integrasi database Supabase Realtime, serta otomatisasi payment gateway berbasis Crypto (USDT BEP-20). Saat ini proyek telah selesai diarsipkan, dan seluruh aktivitas komunitas dialihkan ke Saluran WhatsApp resmi.",
+        description: "Layanan Game Server Hosting (Minecraft Java/Bedrock) dan script custom automation yang beroperasi penuh pada periode 2024 - 2026. Platform ini memanfaatkan arsitektur Pterodactyl Panel, integrasi database Supabase Realtime, serta otomatisasi payment gateway berbasis Crypto (USDT BEP-20). Saat ini proyek telah selesai diarsipkan, dan seluruh aktivitas komunitas dialihkan ke Saluran WhatsApp resmi.",
         isExternal: true,
         isFavorite: true,
         type: "internasional",
@@ -96,7 +104,7 @@ export const sections: LinkSection[] = [
         label: "Zafkiel Arcade",
         description: "Survival game bertema Gothic-Crimson dengan mekanika manipulasi waktu berbasis arsitektur Modular Monolith.",
         isFavorite: false,
-        tags: ["React", "Express", "SQLite", "Game"],
+        tags: ["React", "Express", "Node.js", "Game"],
         links: [{ type: "repo", url: "https://github.com/Curzyori/Zafkiel-Arcade-1" }]
       },
       {
@@ -105,7 +113,7 @@ export const sections: LinkSection[] = [
         label: "C Dashboard",
         description: "Real-time command center pemantau vitalitas hardware Linux Ubuntu yang disinkronisasikan via WebSockets.",
         isFavorite: false,
-        tags: ["React", "Node.js", "Socket.io", "SysInfo"],
+        tags: ["React", "Node.js", "Linux", "Git"],
         links: [{ type: "repo", url: "https://github.com/Curzyori/C-Dashboard-2" }]
       },
       {
@@ -114,7 +122,7 @@ export const sections: LinkSection[] = [
         label: "Curzy Vitality",
         description: "Sistem Life OS pelacak produktivitas pengembang berbasis background daemon Sentinel dan analisis kebugaran.",
         isFavorite: false,
-        tags: ["React", "SQLite3", "PM2", "Life OS"],
+        tags: ["React", "Node.js", "Tailwind CSS", "Life OS"],
         links: [{ type: "repo", url: "https://github.com/Curzyori/Curzy-Vitality-3" }]
       },
       {
@@ -123,7 +131,7 @@ export const sections: LinkSection[] = [
         label: "C Flow",
         description: "Premium local music hub dengan antarmuka penuh glassmorphism dan sirkuit pengorganisasian metadata audio otomatis.",
         isFavorite: false,
-        tags: ["React", "Express", "Metadata", "Audio"],
+        tags: ["React", "Express", "JavaScript", "Audio"],
         links: [{ type: "repo", url: "https://github.com/Curzyori/C-Flow-4" }]
       },
       {
@@ -132,16 +140,16 @@ export const sections: LinkSection[] = [
         label: "C Math",
         description: "Precision-engineered calculator dan mesin analisis finansial untuk optimalisasi margin profit serta kalkulator DCA.",
         isFavorite: false,
-        tags: ["React", "Vite", "Mathjs", "Finance"],
+        tags: ["React", "Vite", "JavaScript", "Finance"],
         links: [{ type: "repo", url: "https://github.com/Curzyori/C-Math-5" }]
       },
       {
         id: "c-story",
         projectNumber: "#06",
         label: "C Story",
-        description: "Interactive storytelling engine berbasis Astro dengan penanganan HUD glassmorphic dan retensi sesi lokal.",
+        description: "Interactive storytelling engine berbasis TypeScript dengan penanganan HUD glassmorphic dan retensi sesi lokal.",
         isFavorite: false,
-        tags: ["Astro", "TypeScript", "Tailwind", "Engine"],
+        tags: ["React", "TypeScript", "Tailwind CSS", "Engine"],
         links: [{ type: "repo", url: "https://github.com/Curzyori/C-Story-6" }]
       },
       {
@@ -150,7 +158,7 @@ export const sections: LinkSection[] = [
         label: "4 Mate",
         description: "Multi-platform media downloader bebas iklan dengan sirkuit forced-download memanfaatkan keunggulan Vercel Edge Runtime.",
         isFavorite: true,
-        tags: ["Next.js 16", "Edge Runtime", "Scraping", "Web App"],
+        tags: ["Next.js", "TypeScript", "Vercel", "Web App"],
         links: [
           { type: "web", url: "https://4mate.curzy.my.id" },
           { type: "repo", url: "https://github.com/Curzyori/4-Mate-7" }
@@ -162,7 +170,7 @@ export const sections: LinkSection[] = [
         label: "C Vault",
         description: "Intelligence nexus dan pustaka desentralisasi dokumen intelijen berbasis otentikasi clearance tingkat berlapis.",
         isFavorite: false,
-        tags: ["Astro 6", "Tailwind 4", "Markdown", "Security"],
+        tags: ["Next.js", "Tailwind CSS", "Markdown", "Security"],
         links: [{ type: "repo", url: "https://github.com/Curzyori/C-Vault-8" }]
       },
       {
@@ -171,7 +179,7 @@ export const sections: LinkSection[] = [
         label: "Check IP",
         description: "Terminal-styled web tools instan pendeteksi alamat IP publik, koordinat lokasi geografis, dan informasi ISP penyeedia jaringan.",
         isFavorite: false,
-        tags: ["Next.js 14", "TypeScript", "API Geolocation", "Tools"],
+        tags: ["Next.js", "TypeScript", "Git", "Tools"],
         links: [
           { type: "web", url: "https://checkip.curzy.my.id" },
           { type: "repo", url: "https://github.com/Curzyori/Check-IP-9" }
@@ -183,7 +191,7 @@ export const sections: LinkSection[] = [
         label: "Float Volume",
         description: "Aplikasi kontrol volume melayang bebas iklan untuk Android dengan pendekatan Material Design 3 dan Prestige-Safe Stealth Aesthetic.",
         isFavorite: true,
-        tags: ["Kotlin", "Jetpack Compose", "Overlay API", "Android App"],
+        tags: ["Linux", "Git", "Android App"],
         links: [
           { type: "download", url: "https://github.com/Curzyori/Float-Volume-10/tree/main/version" },
           { type: "repo", url: "https://github.com/Curzyori/Float-Volume-10" }
@@ -195,7 +203,7 @@ export const sections: LinkSection[] = [
         label: "C Lync",
         description: "Aplikasi web manajemen dan otomatisasi pesan atau grup WhatsApp. Dilengkapi fitur asisten cerdas berbasis Google AI Gemini untuk merangkum obrolan panjang (chat overload) secara otomatis dan asinkron.",
         isFavorite: true,
-        tags: ["React", "Supabase RLS", "Gemini API Pro", "SaaS Utama"],
+        tags: ["React", "TypeScript", "Supabase", "SaaS Utama"],
         links: [
           { type: "web", url: "https://c-lync-266408539680.asia-southeast1.run.app" }
         ]
@@ -206,7 +214,7 @@ export const sections: LinkSection[] = [
         label: "Portfolio",
         description: "Template premium mobile-first link hub dan portfolio developer statis dengan integrasi filter hierarki bertingkat.",
         isFavorite: true,
-        tags: ["Next.js 16", "TypeScript", "Terminal Glass", "Portfolio Hub"],
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Portfolio Hub"],
         links: [
           { type: "web", url: "https://curzy.my.id" },
           { type: "repo", url: "https://github.com/Curzyori/Portofolio-12" }
