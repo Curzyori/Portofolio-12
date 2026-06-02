@@ -12,6 +12,8 @@ function CertCard({
   url,
   type,
   workMode,
+  issuer,
+  category,
   index,
 }: {
   label: string;
@@ -19,8 +21,42 @@ function CertCard({
   url: string;
   type?: "nasional" | "internasional";
   workMode?: "individu" | "team";
+  issuer?: string;
+  category?: 'seminar' | 'lomba' | 'course' | 'bootcamp';
   index: number;
 }) {
+  const getCategoryStyles = (cat: string) => {
+    switch (cat) {
+      case "lomba":
+        return {
+          bg: "rgba(234,179,8,0.06)",
+          border: "1px solid rgba(234,179,8,0.15)",
+          color: "#fde047",
+        };
+      case "course":
+        return {
+          bg: "rgba(16,185,129,0.06)",
+          border: "1px solid rgba(16,185,129,0.15)",
+          color: "#6ee7b7",
+        };
+      case "bootcamp":
+        return {
+          bg: "rgba(219,39,119,0.06)",
+          border: "1px solid rgba(219,39,119,0.15)",
+          color: "#fbcfe8",
+        };
+      case "seminar":
+      default:
+        return {
+          bg: "rgba(14,165,233,0.06)",
+          border: "1px solid rgba(14,165,233,0.15)",
+          color: "#7dd3fc",
+        };
+    }
+  };
+
+  const catStyles = category ? getCategoryStyles(category) : null;
+
   return (
     <a
       href={url}
@@ -28,7 +64,7 @@ function CertCard({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${label}, buka PDF di tab baru`}
-      className="group flex items-center gap-3.5 w-full p-4 rounded-xl transition-all duration-150 active:scale-[0.97]"
+      className="group flex items-start gap-4 w-full p-4 rounded-xl transition-all duration-150 active:scale-[0.97]"
       style={{
         background: "rgba(13,13,13,0.72)",
         border: "1px solid rgba(255,255,255,0.06)",
@@ -38,7 +74,7 @@ function CertCard({
     >
       {/* PDF icon block */}
       <div
-        className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
+        className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center mt-0.5"
         style={{
           background: "rgba(239,68,68,0.08)",
           border: "1px solid rgba(239,68,68,0.15)",
@@ -53,63 +89,87 @@ function CertCard({
         </svg>
       </div>
 
-      {/* Text */}
+      {/* Text container */}
       <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 flex-wrap">
-          <p
-            className="text-sm font-medium truncate"
-            style={{ color: "#f4f4f6" }}
-          >
-            {label}
-          </p>
-          {type && (
-            <span
-              className="text-[8px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded-full animate-fade-in"
-              style={{
-                background: type === "nasional" ? "rgba(255,255,255,0.04)" : "rgba(239,68,68,0.06)",
-                border: type === "nasional" ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(239,68,68,0.12)",
-                color: type === "nasional" ? "rgba(255,255,255,0.4)" : "#fca5a5",
-              }}
-            >
-              {type}
-            </span>
-          )}
-          {workMode && (
-            <span
-              className="text-[8px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded-full animate-fade-in"
-              style={{
-                background: workMode === "individu" ? "rgba(255,255,255,0.04)" : "rgba(94,106,210,0.08)",
-                border: workMode === "individu" ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(94,106,210,0.15)",
-                color: workMode === "individu" ? "rgba(255,255,255,0.4)" : "#818cf8",
-              }}
-            >
-              {workMode}
-            </span>
-          )}
+        {/* Baris 1: Issuer & Badges */}
+        <div className="flex items-center justify-between gap-2 flex-wrap">
+          <span className="text-xs font-bold tracking-wide" style={{ color: "rgba(255,255,255,0.85)" }}>
+            {issuer ?? "Sertifikat Resmi"}
+          </span>
+          <div className="flex items-center gap-1.5 flex-wrap">
+            {type && (
+              <span
+                className="text-[8px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded-full animate-fade-in"
+                style={{
+                  background: type === "nasional" ? "rgba(255,255,255,0.04)" : "rgba(239,68,68,0.06)",
+                  border: type === "nasional" ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(239,68,68,0.12)",
+                  color: type === "nasional" ? "rgba(255,255,255,0.4)" : "#fca5a5",
+                }}
+              >
+                {type}
+              </span>
+            )}
+            {workMode && (
+              <span
+                className="text-[8px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded-full animate-fade-in"
+                style={{
+                  background: workMode === "individu" ? "rgba(255,255,255,0.04)" : "rgba(94,106,210,0.08)",
+                  border: workMode === "individu" ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(94,106,210,0.15)",
+                  color: workMode === "individu" ? "rgba(255,255,255,0.4)" : "#818cf8",
+                }}
+              >
+                {workMode}
+              </span>
+            )}
+            {category && catStyles && (
+              <span
+                className="text-[8px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded-full animate-fade-in"
+                style={{
+                  background: catStyles.bg,
+                  border: catStyles.border,
+                  color: catStyles.color,
+                }}
+              >
+                {category}
+              </span>
+            )}
+          </div>
         </div>
-        <p
-          className="text-[11px] mt-0.5"
-          style={{ color: "rgba(255,255,255,0.28)" }}
-        >
-          {description ?? "Buka PDF · Tab Baru"}
-        </p>
-      </div>
 
-      {/* External arrow */}
-      <svg
-        width="13"
-        height="13"
-        viewBox="0 0 14 14"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-        className="flex-shrink-0 opacity-25 group-hover:opacity-50 transition-opacity duration-150"
-      >
-        <path d="M5.5 2.5H2.5C1.948 2.5 1.5 2.948 1.5 3.5V11.5C1.5 12.052 1.948 12.5 2.5 12.5H10.5C11.052 12.5 11.5 12.052 11.5 11.5V8.5M8.5 1.5H12.5M12.5 1.5V5.5M12.5 1.5L6 8" />
-      </svg>
+        {/* Baris 2: Judul Sertifikat (label) */}
+        <h3 className="text-sm font-semibold mt-1.5" style={{ color: "#f4f4f6" }}>
+          {label}
+        </h3>
+
+        {/* Baris 3: Deskripsi singkat */}
+        {description && (
+          <p
+            className="text-[11px] mt-1 leading-relaxed"
+            style={{ color: "rgba(255,255,255,0.4)" }}
+          >
+            {description}
+          </p>
+        )}
+
+        {/* Baris 4: Action Link */}
+        <div className="flex items-center gap-1 mt-2.5 text-[10px] font-medium transition-colors" style={{ color: "rgba(252,165,165,0.8)" }}>
+          <span>Buka PDF · Tab Baru</span>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 14 14"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+            className="opacity-60 transition-transform group-hover:translate-x-0.5"
+          >
+            <path d="M5.5 2.5H2.5C1.948 2.5 1.5 2.948 1.5 3.5V11.5C1.5 12.052 1.948 12.5 2.5 12.5H10.5C11.052 12.5 11.5 12.052 11.5 11.5V8.5M8.5 1.5H12.5M12.5 1.5V5.5M12.5 1.5L6 8" />
+          </svg>
+        </div>
+      </div>
     </a>
   );
 }
@@ -161,6 +221,12 @@ export default function SertifikatTab() {
     }
 
     return true;
+  });
+
+  const sortedItems = [...displayedItems].sort((a, b) => {
+    const dateA = a.date ?? "";
+    const dateB = b.date ?? "";
+    return dateB.localeCompare(dateA);
   });
 
   return (
@@ -300,7 +366,7 @@ export default function SertifikatTab() {
         </div>
       ) : (
         <div className="space-y-2.5" role="list" aria-label="Daftar sertifikat">
-          {displayedItems.map((item) => (
+          {sortedItems.map((item) => (
             <div key={item.id} role="listitem">
               <CertCard
                 label={item.label}
@@ -308,6 +374,8 @@ export default function SertifikatTab() {
                 url={item.url}
                 type={item.type}
                 workMode={item.workMode}
+                issuer={item.issuer}
+                category={item.category}
                 index={sertifikatSection.items.indexOf(item)}
               />
             </div>

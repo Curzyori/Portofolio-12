@@ -6,7 +6,7 @@ import { profile, sections } from "@/data/links";
 const contactSection = sections.find((s) => s.id === "contact");
 
 // ─── Contact method cards ─────────────────────────────────────
-type ContactVariant = "whatsapp" | "email" | "github" | "default";
+type ContactVariant = "whatsapp" | "email" | "github" | "threads" | "instagram" | "linkedin" | "youtube" | "default";
 
 function ContactCard({
   label,
@@ -40,6 +40,30 @@ function ContactCard({
       iconBg:    "rgba(255,255,255,0.06)",
       iconColor: "rgba(255,255,255,0.5)",
     },
+    threads: {
+      bg:        "rgba(255,255,255,0.03)",
+      border:    "rgba(255,255,255,0.08)",
+      iconBg:    "rgba(255,255,255,0.05)",
+      iconColor: "rgba(255,255,255,0.9)",
+    },
+    instagram: {
+      bg:        "rgba(225,48,108,0.06)",
+      border:    "rgba(225,48,108,0.18)",
+      iconBg:    "rgba(225,48,108,0.1)",
+      iconColor: "rgba(253,104,223,0.85)",
+    },
+    linkedin: {
+      bg:        "rgba(10,102,194,0.06)",
+      border:    "rgba(10,102,194,0.18)",
+      iconBg:    "rgba(10,102,194,0.1)",
+      iconColor: "rgba(114,191,255,0.85)",
+    },
+    youtube: {
+      bg:        "rgba(239,68,68,0.06)",
+      border:    "rgba(239,68,68,0.18)",
+      iconBg:    "rgba(239,68,68,0.1)",
+      iconColor: "rgba(252,165,165,0.85)",
+    },
     default: {
       bg:        "rgba(13,13,13,0.72)",
       border:    "rgba(255,255,255,0.06)",
@@ -50,16 +74,20 @@ function ContactCard({
 
   const styles = variantStyles[variant];
 
-  const isWhatsApp = id.includes("whatsapp");
-  const isEmail    = id.includes("email");
-  const isGithub   = id.includes("github");
+  const isWhatsApp  = id.includes("whatsapp");
+  const isEmail     = id.includes("email");
+  const isGithub    = id.includes("github");
+  const isThreads   = id.includes("threads");
+  const isInstagram = id.includes("instagram");
+  const isLinkedIn  = id.includes("linkedin");
+  const isYouTube   = id.includes("youtube");
 
   return (
     <a
       href={url}
       id={`contact-link-${id}`}
-      target={isEmail ? "_self" : "_blank"}
-      rel={isEmail ? undefined : "noopener noreferrer"}
+      target="_blank"
+      rel="noopener noreferrer"
       aria-label={`${label} — ${description}`}
       className="group flex items-center gap-4 w-full p-4 rounded-xl transition-all duration-150 active:scale-[0.97]"
       style={{
@@ -91,7 +119,31 @@ function ContactCard({
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
           </svg>
         )}
-        {!isWhatsApp && !isEmail && !isGithub && (
+        {isThreads && (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill={styles.iconColor} aria-hidden="true">
+            <path d="M14.28 10.36a3.29 3.29 0 0 0-.61-.91 3.51 3.51 0 0 0-1.32-.82 4.8 4.8 0 0 0-3.32.17 3.5 3.5 0 0 0-1.89 2.05 4.54 4.54 0 0 0-.25 1.5 4.6 4.6 0 0 0 1.25 3.19 4.31 4.31 0 0 0 3.25 1.26 4.9 4.9 0 0 0 3.32-.88c1-.8 1.46-1.92 1.46-3.36v-.5a5.57 5.57 0 0 0-5.56-5.56 5.51 5.51 0 0 0-5.5 5.56 5.61 5.61 0 0 0 1.66 4.09 5.89 5.89 0 0 0 4.19 1.66c1 0 1.95-.27 2.76-.79a.9.9 0 1 0-.96-1.52c-.54.34-1.17.51-1.8.51a4.11 4.11 0 0 1-2.92-1.16A3.94 3.94 0 0 1 8 13.66a3.78 3.78 0 0 1 3.8-3.76 3.77 3.77 0 0 1 3.76 3.76v.5c0 .76-.23 1.34-.69 1.73a2.31 2.31 0 0 1-1.56.55 2.11 2.11 0 0 1-1.63-.69 3.08 3.08 0 0 1-.58-2c0-.52.12-.97.35-1.35a1.86 1.86 0 0 1 1.05-.83.84.84 0 0 1 .49-.04 1 1 0 0 1 .63.48c.17.29.26.65.26 1.07V13a.9.9 0 0 0 1.8 0v-.69a2.82 2.82 0 0 0-.79-2.14 2.87 2.87 0 0 0-1.81-.8 2.66 2.66 0 0 0-1.74.52 3.65 3.65 0 0 0-1.07 1.67 4.7 4.7 0 0 0-.3 1.7c0 1 .28 1.8.84 2.4a2.76 2.76 0 0 0 2.06.89 4.1 4.1 0 0 0 2.77-1c.84-.71 1.25-1.72 1.25-3.01v-.5c0-4.17-3.39-7.56-7.56-7.56A7.51 7.51 0 0 0 4.22 13a7.61 7.61 0 0 0 2.27 5.56A7.89 7.89 0 0 0 12 20.82c1.37 0 2.67-.36 3.78-1.05a.9.9 0 1 0-.96-1.52A6.09 6.09 0 0 1 12 19a5.9 5.9 0 0 1-4.27-1.71A5.82 5.82 0 0 1 6 13a5.77 5.77 0 0 1 5.76-5.76c3.18 0 5.76 2.58 5.76 5.76v.5c0 1.95-.71 3.49-2.13 4.59a5.86 5.86 0 0 1-3.69 1.21c-2.31 0-4.22-.75-5.56-2.19A6.38 6.38 0 0 1 5 13c0-1 .18-1.95.54-2.82a5.32 5.32 0 0 1 1.56-2.22 5.16 5.16 0 0 1 2.37-1.25 5.5 5.5 0 0 1 3.01.1c.96.34 1.76.92 2.35 1.7a.9.9 0 0 0 1.45-1.15z" />
+          </svg>
+        )}
+        {isInstagram && (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={styles.iconColor} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        )}
+        {isLinkedIn && (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={styles.iconColor} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        )}
+        {isYouTube && (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill={styles.iconColor} aria-hidden="true">
+            <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          </svg>
+        )}
+        {!isWhatsApp && !isEmail && !isGithub && !isThreads && !isInstagram && !isLinkedIn && !isYouTube && (
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={styles.iconColor} strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
@@ -130,9 +182,13 @@ function ContactCard({
 // ─── ContactTab ────────────────────────────────────────────────
 export default function ContactTab() {
   const getVariant = (id: string): ContactVariant => {
-    if (id.includes("whatsapp")) return "whatsapp";
-    if (id.includes("email"))    return "email";
-    if (id.includes("github"))   return "github";
+    if (id.includes("whatsapp"))  return "whatsapp";
+    if (id.includes("email"))     return "email";
+    if (id.includes("github"))    return "github";
+    if (id.includes("threads"))   return "threads";
+    if (id.includes("instagram")) return "instagram";
+    if (id.includes("linkedin"))  return "linkedin";
+    if (id.includes("youtube"))   return "youtube";
     return "default";
   };
 

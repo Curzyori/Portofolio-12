@@ -13,6 +13,9 @@ export interface LinkItem {
   isFavorite?: boolean;
   type?: "nasional" | "internasional";
   workMode?: "individu" | "team";
+  issuer?: string;
+  date?: string;
+  category?: 'seminar' | 'lomba' | 'course' | 'bootcamp';
 }
 
 export interface LinkSection {
@@ -40,14 +43,14 @@ export const sections: LinkSection[] = [
         id: "whatsapp",
         label: "WhatsApp Bisnis",
         description: "Hubungi untuk kolaborasi",
-        url: "https://wa.me/62xxxxxxxx", // Ganti dengan nomor WA kamu
+        url: "https://wa.me/6285141495185",
         isExternal: true,
       },
       {
         id: "linkedin",
         label: "LinkedIn",
         description: "Yuken Velino · Professional Profile",
-        url: "https://linkedin.com/in/yukenvelino", // Ganti dengan URL LinkedIn kamu
+        url: "https://www.linkedin.com/in/curzy/",
         isExternal: true,
       },
     ],
@@ -160,30 +163,39 @@ export const sections: LinkSection[] = [
     items: [
       {
         id: "cert-1",
-        label: "Sertifikat 1",
-        description: "Buka PDF · Tab Baru",
+        label: "Alur Belajar Back-End Developer",
+        issuer: "Dicoding Indonesia",
+        description: "Sertifikasi kompetensi pemrograman JavaScript, Node.js, RESTful API, dan clean architecture berskala nasional.",
         url: "/certificates/sertifikat-1.pdf", // taruh PDF di public/certificates/
         isExternal: true,
         type: "nasional",
         workMode: "individu",
+        date: "2025-01-10",
+        category: "course",
       },
       {
         id: "cert-2",
-        label: "Sertifikat 2",
-        description: "Buka PDF · Tab Baru",
+        label: "Global Hackathon: Sustainable Tech",
+        issuer: "UNESCO & Google",
+        description: "Memimpin tim perancang aplikasi pelacak jejak karbon real-time berskala internasional dalam festival inovasi global.",
         url: "/certificates/sertifikat-2.pdf",
         isExternal: true,
         type: "internasional",
         workMode: "team",
+        date: "2025-04-22",
+        category: "lomba",
       },
       {
         id: "cert-3",
-        label: "Sertifikat 3",
-        description: "Buka PDF · Tab Baru",
+        label: "Introduction to Generative AI Bootcamp",
+        issuer: "Google AI",
+        description: "Bootcamp intensif mengenai implementasi Large Language Models dan integrasi API Vertex AI untuk aplikasi pintar.",
         url: "/certificates/sertifikat-3.pdf",
         isExternal: true,
         type: "internasional",
         workMode: "individu",
+        date: "2024-12-05",
+        category: "bootcamp",
       },
     ],
   },
@@ -194,22 +206,50 @@ export const sections: LinkSection[] = [
       {
         id: "email",
         label: "Email",
-        description: "yuken@curzy.my.id", // Ganti dengan email kamu
-        url: "mailto:yuken@curzy.my.id",
-        isExternal: false,
+        description: "yukenvelino11@gmail.com",
+        url: "mailto:yukenvelino11@gmail.com",
+        isExternal: true,
       },
       {
         id: "whatsapp-personal",
         label: "WhatsApp",
         description: "Chat langsung",
-        url: "https://wa.me/62xxxxxxxx", // Ganti dengan nomor WA
+        url: "https://wa.me/6285141495185",
         isExternal: true,
       },
       {
         id: "github",
         label: "GitHub",
-        description: "@curzy",
-        url: "https://github.com/curzy", // Ganti dengan URL GitHub kamu
+        description: "@Curzyori",
+        url: "https://github.com/Curzyori",
+        isExternal: true,
+      },
+      {
+        id: "threads",
+        label: "Threads",
+        description: "@curzyori",
+        url: "https://www.threads.com/@curzyori",
+        isExternal: true,
+      },
+      {
+        id: "instagram",
+        label: "Instagram",
+        description: "@curzyori",
+        url: "https://www.instagram.com/curzyori",
+        isExternal: true,
+      },
+      {
+        id: "linkedin",
+        label: "LinkedIn",
+        description: "Yuken Velino",
+        url: "https://www.linkedin.com/in/curzy/",
+        isExternal: true,
+      },
+      {
+        id: "youtube",
+        label: "YouTube",
+        description: "@Curzys",
+        url: "https://youtube.com/@Curzys",
         isExternal: true,
       },
     ],
