@@ -79,7 +79,7 @@ export const sections: LinkSection[] = [
       {
         id: "zafkiel-arcade",
         projectNumber: "#01",
-        label: "Zafkiel Arcade: Emperor of Time",
+        label: "Zafkiel Arcade",
         description: "Survival game bertema Gothic-Crimson dengan mekanika manipulasi waktu berbasis arsitektur Modular Monolith.",
         isFavorite: false,
         tags: ["React", "Express", "SQLite", "Game"],
@@ -189,7 +189,7 @@ export const sections: LinkSection[] = [
       {
         id: "curzy-portfolio",
         projectNumber: "#12",
-        label: "Curzy Portfolio",
+        label: "Portfolio",
         description: "Template premium mobile-first link hub dan portfolio developer statis dengan integrasi filter hierarki bertingkat.",
         isFavorite: true,
         tags: ["Next.js 16", "TypeScript", "Terminal Glass", "Portfolio Hub"],
