@@ -2,6 +2,7 @@
 // Komponen link button dengan animasi press dan touch-friendly sizing.
 // Semua link menggunakan <a> biasa — cocok untuk static site.
 
+import { useState } from "react";
 import type { LinkItem } from "@/data/links";
 
 // ─── Icon SVGs ──────────────────────────────────────────────
@@ -199,6 +200,29 @@ function resolveIcon(id: string, icon?: string) {
   return <LinkIcon />;
 }
 
+const statusStyles: Record<string, string> = {
+  "CLOSE": "text-red-400 bg-red-500/10 border-red-500/20",
+  "OPEN": "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+  "MAINTENANCE": "text-amber-400 bg-amber-500/10 border-amber-500/20",
+  "COMING SOON": "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
+};
+
+const ChevronIcon = ({ expanded }: { expanded: boolean }) => (
+  <svg
+    width="10"
+    height="10"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={`transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
+  >
+    <polyline points="6 9 12 15 18 9" />
+  </svg>
+);
+
 // ─── LinkCard Component ──────────────────────────────────────
 interface LinkCardProps {
   item: LinkItem;
@@ -206,6 +230,7 @@ interface LinkCardProps {
 }
 
 export default function LinkCard({ item, variant = "default" }: LinkCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
   const isAccent = variant === "accent";
 
   return (
@@ -246,21 +271,52 @@ export default function LinkCard({ item, variant = "default" }: LinkCardProps) {
 
       {/* Text */}
       <div className="flex-1 min-w-0">
-        <p
-          className={[
-            "text-sm font-medium leading-snug truncate",
-            isAccent ? "text-[#c7d2fe]" : "text-[#f4f4f6]",
-          ].join(" ")}
-        >
-          {item.label}
-        </p>
-        {item.description && (
+        <div className="flex items-center gap-1.5 flex-wrap">
           <p
-            className="text-[11px] mt-1 whitespace-normal break-words leading-normal"
-            style={{ color: isAccent ? "rgba(167,179,255,0.55)" : "rgba(255,255,255,0.32)" }}
+            className={[
+              "text-sm font-medium leading-snug truncate",
+              isAccent ? "text-[#c7d2fe]" : "text-[#f4f4f6]",
+            ].join(" ")}
           >
-            {item.description}
+            {item.label}
           </p>
+          {item.status && (
+            <span
+              className={[
+                "text-[9px] font-semibold px-1.5 py-0.5 rounded border leading-none uppercase tracking-wide",
+                statusStyles[item.status] || "",
+              ].join(" ")}
+            >
+              {item.status}
+            </span>
+          )}
+        </div>
+        {item.description && (
+          <div
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsExpanded(!isExpanded);
+            }}
+            className="mt-1 flex items-start gap-1.5 cursor-pointer group/desc"
+          >
+            <p
+              className={[
+                "flex-1 text-[11px] leading-relaxed transition-all duration-300 ease-in-out whitespace-normal break-words",
+                isExpanded ? "" : "line-clamp-2",
+              ].join(" ")}
+              style={{ color: isAccent ? "rgba(167,179,255,0.55)" : "rgba(255,255,255,0.32)" }}
+            >
+              {item.description}
+            </p>
+            <span
+              className="flex-shrink-0 mt-0.5 p-0.5 rounded hover:bg-white/5 transition-colors"
+              style={{ color: isAccent ? "rgba(167,179,255,0.65)" : "rgba(255,255,255,0.4)" }}
+              aria-label={isExpanded ? "Collapse description" : "Expand description"}
+            >
+              <ChevronIcon expanded={isExpanded} />
+            </span>
+          </div>
         )}
       </div>
 
