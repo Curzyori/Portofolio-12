@@ -256,7 +256,7 @@ export default function LinkCard({ item, variant = "default" }: LinkCardProps) {
         </p>
         {item.description && (
           <p
-            className="text-[11px] mt-0.5 truncate"
+            className="text-[11px] mt-1 whitespace-normal break-words leading-normal"
             style={{ color: isAccent ? "rgba(167,179,255,0.55)" : "rgba(255,255,255,0.32)" }}
           >
             {item.description}
