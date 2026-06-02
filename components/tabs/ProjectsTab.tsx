@@ -1,96 +1,158 @@
-// components/tabs/ProjectsTab.tsx — Projects 1–12, grid of numbered cards with filter
+// components/tabs/ProjectsTab.tsx: Projects 1 to 12, grid of numbered cards with filter
 
 import { useState } from "react";
-import { sections } from "@/data/links";
+import { sections, type ProjectItem } from "@/data/links";
 
 const projectsSection = sections.find((s) => s.id === "projects");
 
-// ─── Single Project Card ──────────────────────────────────────
+const GlobeIcon = () => (
+  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" />
+    <line x1="2" y1="12" x2="22" y2="12" />
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+  </svg>
+);
+
+const GithubIcon = () => (
+  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0" aria-hidden="true">
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+  </svg>
+);
+
+const DownloadIcon = () => (
+  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" />
+    <polyline points="8 12 12 16 16 12" />
+    <line x1="12" y1="8" x2="12" y2="16" />
+  </svg>
+);
+
+// === Single Project Card ===
 function ProjectCard({
-  label,
-  description,
-  url,
+  item,
   index,
 }: {
-  label: string;
-  description?: string;
-  url: string;
+  item: ProjectItem;
   index: number;
 }) {
   return (
-    <a
-      href={url}
+    <div
       id={`project-card-${index + 1}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${label} — ${description ?? "GitHub Repository"}`}
-      className="group relative flex flex-col justify-between rounded-xl p-4 transition-all duration-150 active:scale-[0.96]"
+      className="group relative flex flex-col justify-between rounded-xl p-4 transition-all duration-150 bg-[rgba(13,13,13,0.72)] border border-[rgba(255,255,255,0.06)] hover:bg-[rgba(20,21,22,0.85)] hover:border-[rgba(255,255,255,0.12)]"
       style={{
-        background: "rgba(13,13,13,0.72)",
-        border: "1px solid rgba(255,255,255,0.06)",
-        minHeight: "84px",
-        cursor: "pointer",
-        textDecoration: "none",
+        minHeight: "180px",
       }}
     >
-      {/* Number badge */}
-      <span
-        className="absolute top-3 right-3 text-[10px] font-semibold tabular-nums"
-        style={{
-          color: "rgba(94,106,210,0.6)",
-          fontFeatureSettings: '"tnum"',
-        }}
-        aria-hidden="true"
-      >
-        #{String(index + 1).padStart(2, "0")}
-      </span>
-
-      {/* Label */}
-      <p
-        className="text-sm font-medium leading-snug pr-8"
-        style={{ color: "#f4f4f6" }}
-      >
-        {label}
-      </p>
-
-      {/* Footer row */}
-      <div className="flex items-center justify-between mt-2.5">
-        <span
-          className="text-[10px] font-medium tracking-wide"
-          style={{ color: "rgba(255,255,255,0.25)" }}
-        >
-          {description}
-        </span>
-        {/* GitHub icon */}
-        <svg
-          width="13"
-          height="13"
-          viewBox="0 0 16 16"
-          fill="currentColor"
-          aria-hidden="true"
-          className="opacity-25 group-hover:opacity-50 transition-opacity duration-150 flex-shrink-0"
-        >
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-        </svg>
-      </div>
-
       {/* Hover/active left accent line */}
       <div
         className="absolute left-0 top-3 bottom-3 w-[2px] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-150"
         aria-hidden="true"
         style={{ background: "linear-gradient(to bottom, #5e6ad2, #818cf8)" }}
       />
-    </a>
+
+      {/* Top Section */}
+      <div>
+        {/* Project number & Favorite */}
+        <div className="flex justify-between items-center mb-1.5">
+          <div>
+            {item.isFavorite && (
+              <span
+                className="text-[9px] font-semibold tracking-wider text-[#818cf8] uppercase flex items-center gap-0.5"
+                aria-hidden="true"
+              >
+                ★ Featured
+              </span>
+            )}
+          </div>
+          <span
+            className="text-[10px] font-semibold tabular-nums"
+            style={{
+              color: "rgba(94,106,210,0.8)",
+              fontFeatureSettings: '"tnum"',
+            }}
+          >
+            {item.projectNumber}
+          </span>
+        </div>
+
+        {/* Title */}
+        <h3
+          className="text-xs font-semibold leading-snug pr-4"
+          style={{ color: "#f4f4f6" }}
+        >
+          {item.label}
+        </h3>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1 mt-1.5">
+          {item.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-[8px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)]"
+              style={{ color: "rgba(255,255,255,0.4)" }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* Description */}
+        <p
+          className="text-[10px] mt-2 leading-relaxed"
+          style={{ color: "rgba(255,255,255,0.32)" }}
+        >
+          {item.description}
+        </p>
+      </div>
+
+      {/* Dynamic Links bar */}
+      <div className="flex flex-col gap-1.5 mt-4">
+        {item.links.map((link, idx) => {
+          const isWeb = link.type === "web";
+          const isRepo = link.type === "repo";
+          const isDownload = link.type === "download";
+
+          return (
+            <a
+              key={idx}
+              href={link.url}
+              id={`project-${item.id}-link-${link.type}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-1.5 text-[9px] font-semibold py-1.5 px-3 rounded-lg transition-all duration-150 active:scale-[0.97]"
+              style={{
+                background: isWeb ? "rgba(94,106,210,0.12)" : "rgba(255,255,255,0.03)",
+                border: isWeb ? "1px solid rgba(94,106,210,0.25)" : "1px solid rgba(255,255,255,0.06)",
+                color: isWeb ? "#818cf8" : "rgba(255,255,255,0.56)",
+                textDecoration: "none",
+                cursor: "pointer",
+              }}
+            >
+              {isWeb && <GlobeIcon />}
+              {isRepo && <GithubIcon />}
+              {isDownload && <DownloadIcon />}
+              <span>
+                {isWeb && "Kunjungi Situs"}
+                {isRepo && "Buka Kode"}
+                {isDownload && "Unduh APK"}
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
-// ─── ProjectsTab ──────────────────────────────────────────────
+// === ProjectsTab ===
 export default function ProjectsTab() {
   const [filter, setFilter] = useState<"all" | "fav">("all");
 
   if (!projectsSection) return null;
 
-  const displayedItems = projectsSection.items.filter((item) => {
+  const projectItems = projectsSection.items as ProjectItem[];
+
+  const displayedItems = projectItems.filter((item) => {
     if (filter === "fav") return item.isFavorite;
     return true;
   });
@@ -144,7 +206,7 @@ export default function ProjectsTab() {
           className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
           style={{
             background: filter === "fav" ? "rgba(94,106,210,0.12)" : "rgba(255,255,255,0.04)",
-            border: filter === "fav" ? "1px solid rgba(94,106,210,0.2)" : "1px solid rgba(255,255,255,0.06)",
+            border: filter === "fav" ? "1px solid rgba(94,106,210,0.25)" : "1px solid rgba(255,255,255,0.06)",
             color: filter === "fav" ? "#818cf8" : "rgba(255,255,255,0.4)",
           }}
         >
@@ -162,10 +224,8 @@ export default function ProjectsTab() {
         {displayedItems.map((item) => (
           <div key={item.id} role="listitem">
             <ProjectCard
-              label={item.label}
-              description={item.description}
-              url={item.url}
-              index={projectsSection.items.indexOf(item)}
+              item={item}
+              index={projectItems.indexOf(item)}
             />
           </div>
         ))}

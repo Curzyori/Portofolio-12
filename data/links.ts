@@ -1,5 +1,5 @@
 // ============================================================
-// data/links.ts — Semua data link hardcoded di sini.
+// data/links.ts: Semua data link hardcoded di sini.
 // Edit file ini untuk mengupdate konten tanpa menyentuh UI.
 // ============================================================
 
@@ -18,13 +18,30 @@ export interface LinkItem {
   category?: 'seminar' | 'lomba' | 'course' | 'bootcamp';
 }
 
+export interface ProjectLink {
+  type: 'repo' | 'web' | 'download';
+  url: string;
+}
+
+export interface ProjectItem {
+  id: string;
+  projectNumber: string;
+  label: string;
+  description: string;
+  isFavorite: boolean;
+  tags: string[];
+  links: ProjectLink[];
+}
+
+export type SectionItem = LinkItem | ProjectItem;
+
 export interface LinkSection {
   id: string;
   title: string;
-  items: LinkItem[];
+  items: SectionItem[];
 }
 
-// ─── Profil ─────────────────────────────────────────────────
+// === Profil ===
 export const profile = {
   name: "Yuken Velino",
   username: "@curzy.my.id",
@@ -33,7 +50,7 @@ export const profile = {
   domain: "curzy.my.id",
 };
 
-// ─── Sections ───────────────────────────────────────────────
+// === Sections ===
 export const sections: LinkSection[] = [
   {
     id: "bisnis",
@@ -60,102 +77,128 @@ export const sections: LinkSection[] = [
     title: "Projects",
     items: [
       {
-        id: "project-1",
-        label: "Project 1",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-1", // Ganti dengan URL repo asli
-        isExternal: true,
+        id: "zafkiel-arcade",
+        projectNumber: "#01",
+        label: "Zafkiel Arcade: Emperor of Time",
+        description: "Survival game bertema Gothic-Crimson dengan mekanika manipulasi waktu berbasis arsitektur Modular Monolith.",
         isFavorite: false,
+        tags: ["React", "Express", "SQLite", "Game"],
+        links: [{ type: "repo", url: "https://github.com/Curzyori/Zafkiel-Arcade-1" }]
       },
       {
-        id: "project-2",
-        label: "Project 2",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-2",
-        isExternal: true,
+        id: "c-dashboard",
+        projectNumber: "#02",
+        label: "C Dashboard",
+        description: "Real-time command center pemantau vitalitas hardware Linux Ubuntu yang disinkronisasikan via WebSockets.",
         isFavorite: false,
+        tags: ["React", "Node.js", "Socket.io", "SysInfo"],
+        links: [{ type: "repo", url: "https://github.com/Curzyori/C-Dashboard-2" }]
       },
       {
-        id: "project-3",
-        label: "Project 3",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-3",
-        isExternal: true,
+        id: "curzy-vitality",
+        projectNumber: "#03",
+        label: "Curzy Vitality",
+        description: "Sistem Life OS pelacak produktivitas pengembang berbasis background daemon Sentinel dan analisis kebugaran.",
         isFavorite: false,
+        tags: ["React", "SQLite3", "PM2", "Life OS"],
+        links: [{ type: "repo", url: "https://github.com/Curzyori/Curzy-Vitality-3" }]
       },
       {
-        id: "project-4",
-        label: "Project 4",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-4",
-        isExternal: true,
+        id: "c-flow",
+        projectNumber: "#04",
+        label: "C Flow",
+        description: "Premium local music hub dengan antarmuka penuh glassmorphism dan sirkuit pengorganisasian metadata audio otomatis.",
         isFavorite: false,
+        tags: ["React", "Express", "Metadata", "Audio"],
+        links: [{ type: "repo", url: "https://github.com/Curzyori/C-Flow-4" }]
       },
       {
-        id: "project-5",
-        label: "Project 5",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-5",
-        isExternal: true,
+        id: "c-math",
+        projectNumber: "#05",
+        label: "C Math",
+        description: "Precision-engineered calculator dan mesin analisis finansial untuk optimalisasi margin profit serta kalkulator DCA.",
         isFavorite: false,
+        tags: ["React", "Vite", "Mathjs", "Finance"],
+        links: [{ type: "repo", url: "https://github.com/Curzyori/C-Math-5" }]
       },
       {
-        id: "project-6",
-        label: "Project 6",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-6",
-        isExternal: true,
+        id: "c-story",
+        projectNumber: "#06",
+        label: "C-Story",
+        description: "Interactive storytelling engine berbasis Astro dengan penanganan HUD glassmorphic dan retensi sesi lokal.",
         isFavorite: false,
+        tags: ["Astro", "TypeScript", "Tailwind", "Engine"],
+        links: [{ type: "repo", url: "https://github.com/Curzyori/C-Story-6" }]
       },
       {
-        id: "project-7",
-        label: "Project 7",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-7",
-        isExternal: true,
-        isFavorite: false,
-      },
-      {
-        id: "project-8",
-        label: "Project 8",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-8",
-        isExternal: true,
-        isFavorite: false,
-      },
-      {
-        id: "project-9",
-        label: "Project 9",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-9",
-        isExternal: true,
-        isFavorite: false,
-      },
-      {
-        id: "project-10",
-        label: "Project 10",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-10",
-        isExternal: true,
+        id: "4-mate",
+        projectNumber: "#07",
+        label: "4 Mate",
+        description: "Multi-platform media downloader bebas iklan dengan sirkuit forced-download memanfaatkan keunggulan Vercel Edge Runtime.",
         isFavorite: true,
+        tags: ["Next.js 16", "Edge Runtime", "Scraping", "Web App"],
+        links: [
+          { type: "web", url: "https://4mate.curzy.my.id" },
+          { type: "repo", url: "https://github.com/Curzyori/4-Mate-7" }
+        ]
       },
       {
-        id: "project-11",
-        label: "Project 11",
-        description: "GitHub Repository",
-        url: "https://github.com/curzy/project-11",
-        isExternal: true,
-        isFavorite: true,
+        id: "c-vault",
+        projectNumber: "#08",
+        label: "C Vault",
+        description: "Intelligence nexus dan pustaka desentralisasi dokumen intelijen berbasis otentikasi clearance tingkat berlapis.",
+        isFavorite: false,
+        tags: ["Astro 6", "Tailwind 4", "Markdown", "Security"],
+        links: [{ type: "repo", url: "https://github.com/Curzyori/C-Vault-8" }]
       },
       {
-        id: "project-12",
-        label: "Project 12 · Portofolio Hub",
-        description: "This site — GitHub Repository",
-        url: "https://github.com/curzy/portofolio-12",
-        isExternal: true,
-        isFavorite: true,
+        id: "check-ip",
+        projectNumber: "#09",
+        label: "Check IP",
+        description: "Terminal-styled web tools instan pendeteksi alamat IP publik, koordinat lokasi geografis, dan informasi ISP penyeedia jaringan.",
+        isFavorite: false,
+        tags: ["Next.js 14", "TypeScript", "API Geolocation", "Tools"],
+        links: [
+          { type: "web", url: "https://checkip.curzy.my.id" },
+          { type: "repo", url: "https://github.com/Curzyori/Check-IP-9" }
+        ]
       },
-    ],
+      {
+        id: "float-volume",
+        projectNumber: "#10",
+        label: "Float Volume",
+        description: "Aplikasi kontrol volume melayang bebas iklan untuk Android dengan pendekatan Material Design 3 dan Prestige-Safe Stealth Aesthetic.",
+        isFavorite: true,
+        tags: ["Kotlin", "Jetpack Compose", "Overlay API", "Android App"],
+        links: [
+          { type: "download", url: "https://github.com/Curzyori/Float-Volume-10/tree/main/version" },
+          { type: "repo", url: "https://github.com/Curzyori/Float-Volume-10" }
+        ]
+      },
+      {
+        id: "c-lync",
+        projectNumber: "#11",
+        label: "C-Lync",
+        description: "SaaS otomatisasi WhatsApp berbasis Google AI Gemini dengan manajemen multi-tenant beraliran arsitektur Unified Monolith.",
+        isFavorite: true,
+        tags: ["React", "Supabase RLS", "Gemini API Pro", "SaaS Utama"],
+        links: [
+          { type: "web", url: "https://c-lync-266408539680.asia-southeast1.run.app" }
+        ]
+      },
+      {
+        id: "curzy-portfolio",
+        projectNumber: "#12",
+        label: "Curzy Portfolio",
+        description: "Template premium mobile-first link hub dan portfolio developer statis dengan integrasi filter hierarki bertingkat.",
+        isFavorite: true,
+        tags: ["Next.js 16", "TypeScript", "Terminal Glass", "Portfolio Hub"],
+        links: [
+          { type: "web", url: "https://curzy.my.id" },
+          { type: "repo", url: "https://github.com/Curzyori/Portofolio-12" }
+        ]
+      }
+    ]
   },
   {
     id: "certificates",

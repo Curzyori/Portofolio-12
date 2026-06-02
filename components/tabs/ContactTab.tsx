@@ -1,7 +1,7 @@
-// components/tabs/ContactTab.tsx — Direct action contact links
+// components/tabs/ContactTab.tsx: Direct action contact links
 // No backend. Pure static: WhatsApp, Email, GitHub.
 
-import { profile, sections } from "@/data/links";
+import { profile, sections, type LinkItem } from "@/data/links";
 
 const contactSection = sections.find((s) => s.id === "contact");
 
@@ -222,7 +222,7 @@ export default function ContactTab() {
       {/* Contact links */}
       {contactSection && (
         <div className="space-y-2.5" role="list" aria-label="Metode kontak">
-          {contactSection.items.map((item) => (
+          {(contactSection.items as LinkItem[]).map((item) => (
             <div key={item.id} role="listitem">
               <ContactCard
                 label={item.label}

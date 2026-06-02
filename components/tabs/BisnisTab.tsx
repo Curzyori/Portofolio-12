@@ -1,7 +1,7 @@
-// components/tabs/BisnisTab.tsx — Professional/business links
+// components/tabs/BisnisTab.tsx: Professional/business links
 
 import LinkCard from "@/components/LinkCard";
-import { sections } from "@/data/links";
+import { sections, type LinkItem } from "@/data/links";
 
 const bisnisSection = sections.find((s) => s.id === "bisnis");
 
@@ -56,7 +56,7 @@ export default function BisnisTab() {
       <BisnisHeader />
 
       <div className="space-y-2.5" role="list">
-        {bisnisSection.items.map((item) => (
+        {(bisnisSection.items as LinkItem[]).map((item) => (
           <div key={item.id} role="listitem">
             <LinkCard item={item} variant="accent" />
           </div>

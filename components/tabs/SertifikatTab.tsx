@@ -1,7 +1,7 @@
-// components/tabs/SertifikatTab.tsx — PDF certificate list with type filtering
+// components/tabs/SertifikatTab.tsx: PDF certificate list with type filtering
 
 import { useState } from "react";
-import { sections } from "@/data/links";
+import { sections, type LinkItem } from "@/data/links";
 
 const sertifikatSection = sections.find((s) => s.id === "certificates");
 
@@ -219,7 +219,7 @@ export default function SertifikatTab() {
     }
   };
 
-  const displayedItems = sertifikatSection.items.filter((item) => {
+  const displayedItems = (sertifikatSection.items as LinkItem[]).filter((item) => {
     // Level 1: Skala Wilayah
     if (filter === "nasional" && item.type !== "nasional") return false;
     if (filter === "internasional" && item.type !== "internasional") return false;
