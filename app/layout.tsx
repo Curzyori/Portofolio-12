@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: "/avatar.jpg",
+  },
 };
 
 // ─── Viewport ─────────────────────────────────────────────────
@@ -63,7 +66,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/avatar.jpg" />
       </head>
       <body>{children}</body>
     </html>
