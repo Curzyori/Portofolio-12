@@ -205,6 +205,10 @@ public/
 | Active Text      | `#f4f4f6` (bright) or `#818cf8`/`#fca5a5` (accent) |
 | Press animation  | `active:scale-[0.97]` |
 
+> [!NOTE]
+> Pada tab Sertifikat, Filter Bar memiliki 5 opsi tombol (All, Nasional, Internasional, Individu, Team) dan menggunakan layout horizontal scrollable (`flex overflow-x-auto whitespace-nowrap scrollbar-none`) agar tetap presisi dan responsif di layar mobile.
+
+
 ---
 
 ## Aturan "Satu Momen Warna" (Raycast Principle)

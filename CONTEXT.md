@@ -24,5 +24,5 @@ graph TD
     C -->|Tab 1| D[HomeTab: Profile Card Glass + Summary + Tech Stack]
     C -->|Tab 2| E[BisnisTab: Status Kerja + Tautan Bisnis Pro]
     C -->|Tab 3| F[ProjectsTab: Grid 2-Kolom + Filter All/Fav]
-    C -->|Tab 4| G[SertifikatTab: Daftar Dokumen PDF + Filter Skala]
+    C -->|Tab 4| G[SertifikatTab: Daftar Dokumen PDF + Filter Skala & Kategori Kerja]
     C -->|Tab 5| H[ContactTab: Direct Link Hijau/Indigo WA & Email]

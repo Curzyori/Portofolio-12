@@ -11,12 +11,14 @@ function CertCard({
   description,
   url,
   type,
+  workMode,
   index,
 }: {
   label: string;
   description?: string;
   url: string;
   type?: "nasional" | "internasional";
+  workMode?: "individu" | "team";
   index: number;
 }) {
   return (
@@ -25,7 +27,7 @@ function CertCard({
       id={`cert-card-${index + 1}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${label} — buka PDF di tab baru`}
+      aria-label={`${label}, buka PDF di tab baru`}
       className="group flex items-center gap-3.5 w-full p-4 rounded-xl transition-all duration-150 active:scale-[0.97]"
       style={{
         background: "rgba(13,13,13,0.72)",
@@ -53,7 +55,7 @@ function CertCard({
 
       {/* Text */}
       <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <p
             className="text-sm font-medium truncate"
             style={{ color: "#f4f4f6" }}
@@ -70,6 +72,18 @@ function CertCard({
               }}
             >
               {type}
+            </span>
+          )}
+          {workMode && (
+            <span
+              className="text-[8px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded-full animate-fade-in"
+              style={{
+                background: workMode === "individu" ? "rgba(255,255,255,0.04)" : "rgba(94,106,210,0.08)",
+                border: workMode === "individu" ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(94,106,210,0.15)",
+                color: workMode === "individu" ? "rgba(255,255,255,0.4)" : "#818cf8",
+              }}
+            >
+              {workMode}
             </span>
           )}
         </div>
@@ -102,7 +116,7 @@ function CertCard({
 
 // ─── SertifikatTab ────────────────────────────────────────────
 export default function SertifikatTab() {
-  const [filter, setFilter] = useState<"all" | "nasional" | "internasional">("all");
+  const [filter, setFilter] = useState<"all" | "nasional" | "internasional" | "individu" | "team">("all");
 
   if (!sertifikatSection || sertifikatSection.items.length === 0) {
     return (
@@ -130,6 +144,8 @@ export default function SertifikatTab() {
   const displayedItems = sertifikatSection.items.filter((item) => {
     if (filter === "nasional") return item.type === "nasional";
     if (filter === "internasional") return item.type === "internasional";
+    if (filter === "individu") return item.workMode === "individu";
+    if (filter === "team") return item.workMode === "team";
     return true;
   });
 
@@ -138,12 +154,18 @@ export default function SertifikatTab() {
       <h2 className="sr-only">Sertifikat</h2>
 
       {/* UI Filter Bar */}
-      <div className="flex gap-2 mb-5" role="group" aria-label="Filter sertifikat">
+      <div
+        className="flex overflow-x-auto whitespace-nowrap scrollbar-none gap-2 mb-5 pb-1"
+        role="group"
+        aria-label="Filter sertifikat"
+      >
         <button
           onClick={() => setFilter("all")}
-          className="flex-1 flex items-center justify-center text-xs font-medium rounded-xl transition-all duration-150 active:scale-[0.97]"
+          className="flex-1 md:flex-none min-w-[70px] flex-shrink-0 flex items-center justify-center text-xs font-medium rounded-xl transition-all duration-150 active:scale-[0.97]"
           style={{
             height: "44px", // Safe touch target
+            paddingLeft: "16px",
+            paddingRight: "16px",
             background: filter === "all" ? "rgba(255,255,255,0.08)" : "rgba(13,13,13,0.72)",
             border: filter === "all" ? "1px solid rgba(255,255,255,0.15)" : "1px solid rgba(255,255,255,0.06)",
             color: filter === "all" ? "#f4f4f6" : "rgba(255,255,255,0.56)",
@@ -154,9 +176,11 @@ export default function SertifikatTab() {
         </button>
         <button
           onClick={() => setFilter("nasional")}
-          className="flex-1 flex items-center justify-center text-xs font-medium rounded-xl transition-all duration-150 active:scale-[0.97]"
+          className="flex-1 md:flex-none min-w-[90px] flex-shrink-0 flex items-center justify-center text-xs font-medium rounded-xl transition-all duration-150 active:scale-[0.97]"
           style={{
             height: "44px", // Safe touch target
+            paddingLeft: "16px",
+            paddingRight: "16px",
             background: filter === "nasional" ? "rgba(239,68,68,0.06)" : "rgba(13,13,13,0.72)",
             border: filter === "nasional" ? "1px solid rgba(239,68,68,0.25)" : "1px solid rgba(255,255,255,0.06)",
             color: filter === "nasional" ? "#fca5a5" : "rgba(255,255,255,0.56)",
@@ -167,9 +191,11 @@ export default function SertifikatTab() {
         </button>
         <button
           onClick={() => setFilter("internasional")}
-          className="flex-1 flex items-center justify-center text-xs font-medium rounded-xl transition-all duration-150 active:scale-[0.97]"
+          className="flex-1 md:flex-none min-w-[110px] flex-shrink-0 flex items-center justify-center text-xs font-medium rounded-xl transition-all duration-150 active:scale-[0.97]"
           style={{
             height: "44px", // Safe touch target
+            paddingLeft: "16px",
+            paddingRight: "16px",
             background: filter === "internasional" ? "rgba(239,68,68,0.06)" : "rgba(13,13,13,0.72)",
             border: filter === "internasional" ? "1px solid rgba(239,68,68,0.25)" : "1px solid rgba(255,255,255,0.06)",
             color: filter === "internasional" ? "#fca5a5" : "rgba(255,255,255,0.56)",
@@ -177,6 +203,36 @@ export default function SertifikatTab() {
           }}
         >
           Internasional
+        </button>
+        <button
+          onClick={() => setFilter("individu")}
+          className="flex-1 md:flex-none min-w-[90px] flex-shrink-0 flex items-center justify-center text-xs font-medium rounded-xl transition-all duration-150 active:scale-[0.97]"
+          style={{
+            height: "44px", // Safe touch target
+            paddingLeft: "16px",
+            paddingRight: "16px",
+            background: filter === "individu" ? "rgba(255,255,255,0.08)" : "rgba(13,13,13,0.72)",
+            border: filter === "individu" ? "1px solid rgba(255,255,255,0.15)" : "1px solid rgba(255,255,255,0.06)",
+            color: filter === "individu" ? "#f4f4f6" : "rgba(255,255,255,0.56)",
+            cursor: "pointer",
+          }}
+        >
+          Individu
+        </button>
+        <button
+          onClick={() => setFilter("team")}
+          className="flex-1 md:flex-none min-w-[80px] flex-shrink-0 flex items-center justify-center text-xs font-medium rounded-xl transition-all duration-150 active:scale-[0.97]"
+          style={{
+            height: "44px", // Safe touch target
+            paddingLeft: "16px",
+            paddingRight: "16px",
+            background: filter === "team" ? "rgba(94,106,210,0.08)" : "rgba(13,13,13,0.72)",
+            border: filter === "team" ? "1px solid rgba(94,106,210,0.25)" : "1px solid rgba(255,255,255,0.06)",
+            color: filter === "team" ? "#818cf8" : "rgba(255,255,255,0.56)",
+            cursor: "pointer",
+          }}
+        >
+          Team
         </button>
       </div>
 
@@ -225,6 +281,7 @@ export default function SertifikatTab() {
                 description={item.description}
                 url={item.url}
                 type={item.type}
+                workMode={item.workMode}
                 index={sertifikatSection.items.indexOf(item)}
               />
             </div>

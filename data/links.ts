@@ -12,6 +12,7 @@ export interface LinkItem {
   isExternal?: boolean;
   isFavorite?: boolean;
   type?: "nasional" | "internasional";
+  workMode?: "individu" | "team";
 }
 
 export interface LinkSection {
@@ -164,6 +165,7 @@ export const sections: LinkSection[] = [
         url: "/certificates/sertifikat-1.pdf", // taruh PDF di public/certificates/
         isExternal: true,
         type: "nasional",
+        workMode: "individu",
       },
       {
         id: "cert-2",
@@ -172,6 +174,7 @@ export const sections: LinkSection[] = [
         url: "/certificates/sertifikat-2.pdf",
         isExternal: true,
         type: "internasional",
+        workMode: "team",
       },
       {
         id: "cert-3",
@@ -180,6 +183,7 @@ export const sections: LinkSection[] = [
         url: "/certificates/sertifikat-3.pdf",
         isExternal: true,
         type: "internasional",
+        workMode: "individu",
       },
     ],
   },
