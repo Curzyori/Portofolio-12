@@ -280,6 +280,11 @@ export default function LinkCard({ item, variant = "default" }: LinkCardProps) {
           >
             {item.label}
           </p>
+          {item.year && (
+            <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded border border-gray-500/20 bg-gray-500/5 text-gray-400 leading-none tracking-wide">
+              {item.year}
+            </span>
+          )}
           {item.status && (
             <span
               className={[

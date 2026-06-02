@@ -17,6 +17,7 @@ export interface LinkItem {
   date?: string;
   category?: 'seminar' | 'lomba' | 'course' | 'bootcamp';
   status?: "CLOSE" | "OPEN" | "MAINTENANCE" | "COMING SOON";
+  year?: string;
 }
 
 export interface ProjectLink {
@@ -68,6 +69,7 @@ export const sections: LinkSection[] = [
         type: "internasional",
         workMode: "individu",
         status: "CLOSE",
+        year: "2024 - 2026",
       },
       {
         id: "curzy-market",
@@ -80,6 +82,7 @@ export const sections: LinkSection[] = [
         type: "internasional",
         workMode: "individu",
         status: "COMING SOON",
+        year: "2026",
       },
     ],
   },
