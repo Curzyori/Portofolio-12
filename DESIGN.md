@@ -206,7 +206,7 @@ public/
 | Press animation  | `active:scale-[0.97]` |
 
 > [!NOTE]
-> Pada tab Sertifikat, Filter Bar memiliki 5 opsi tombol (All, Nasional, Internasional, Individu, Team) dan menggunakan layout horizontal scrollable (`flex overflow-x-auto whitespace-nowrap scrollbar-none`) agar tetap presisi dan responsif di layar mobile.
+> Pada tab Sertifikat, Filter Bar menggunakan sistem Hierarki 2-Level. Level 1 (Utama) menyaring skala wilayah (All, Nasional, Internasional). Jika Nasional atau Internasional dipilih, Level 2 (Sub-Filter) muncul secara dinamis di bawahnya berupa tombol pill minimalis (All Mode, Individu, Team) dengan animasi halus.
 
 
 ---
