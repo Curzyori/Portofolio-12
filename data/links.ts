@@ -165,7 +165,7 @@ export const sections: LinkSection[] = [
         id: "google-ai",
         label: "Google AI Professional Certificate",
         issuer: "Google & Coursera",
-        description: "Berhasil menyelesaikan 7 rangkaian course intensif dari Google. Menguasai implementasi AI untuk Research, Data Analysis, Content Creation, hingga Vibe Coding dengan portofolio berupa 20+ inovasi artifact kecerdasan buatan.",
+        description: "Spesialisasi Profesional dari Google. Diselesaikan dalam waktu sekitar 1 bulan dengan intensitas belajar 2 jam per minggu. Mencakup 7 modul utama: AI Fundamentals, Brainstorming & Planning, Research & Insights, Writing & Communication, Content Creation, Data Analysis, hingga App Building.",
         url: "/certificates/google-ai.pdf",
         isExternal: true,
         type: "internasional",
