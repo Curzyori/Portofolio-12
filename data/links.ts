@@ -162,6 +162,18 @@ export const sections: LinkSection[] = [
     title: "Sertifikat",
     items: [
       {
+        id: "google-ai-professional",
+        label: "Google AI Professional Certificate",
+        issuer: "Google & Coursera",
+        description: "Berhasil menyelesaikan 7 rangkaian course intensif dari Google. Menguasai implementasi AI untuk Research, Data Analysis, Content Creation, hingga Vibe Coding dengan portofolio berupa 20+ inovasi artifact kecerdasan buatan.",
+        url: "/certificates/google-ai.pdf",
+        isExternal: true,
+        type: "internasional",
+        workMode: "individu",
+        date: "2026-05-22",
+        category: "course",
+      },
+      {
         id: "cert-1",
         label: "Alur Belajar Back-End Developer",
         issuer: "Dicoding Indonesia",
