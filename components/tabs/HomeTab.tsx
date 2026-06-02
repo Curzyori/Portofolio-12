@@ -291,7 +291,7 @@ export default function HomeTab() {
           </div>
           <div className="p-2 rounded bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
             <div className="text-neutral-500 mb-0.5">UPDATED</div>
-            <div className="text-[#f4f4f6] font-semibold">2 Jun 2026</div>
+            <div className="text-[#f4f4f6] font-semibold">3 Jun 2026</div>
           </div>
         </div>
       </div>
