@@ -149,8 +149,48 @@ const LinkIcon = () => (
   </svg>
 );
 
+const CloudIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    className="flex-shrink-0 opacity-60"
+  >
+    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+  </svg>
+);
+
+const ShoppingBagIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    className="flex-shrink-0 opacity-60"
+  >
+    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <path d="M16 10a4 4 0 0 1-8 0" />
+  </svg>
+);
+
 // ─── Icon resolver ───────────────────────────────────────────
-function resolveIcon(id: string) {
+function resolveIcon(id: string, icon?: string) {
+  if (icon === "fa-cloud") return <CloudIcon />;
+  if (icon === "fa-shopping-bag") return <ShoppingBagIcon />;
   if (id.includes("whatsapp")) return <WhatsAppIcon />;
   if (id.includes("linkedin")) return <LinkedInIcon />;
   if (id.includes("github") || id.includes("project")) return <GitHubIcon />;
@@ -201,7 +241,7 @@ export default function LinkCard({ item, variant = "default" }: LinkCardProps) {
         className={isAccent ? "text-[#818cf8]" : "text-[#f4f4f6]"}
         aria-hidden="true"
       >
-        {resolveIcon(item.id)}
+        {resolveIcon(item.id, item.icon)}
       </span>
 
       {/* Text */}
