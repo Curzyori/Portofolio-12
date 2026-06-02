@@ -124,7 +124,7 @@ export const sections: LinkSection[] = [
       {
         id: "c-story",
         projectNumber: "#06",
-        label: "C-Story",
+        label: "C Story",
         description: "Interactive storytelling engine berbasis Astro dengan penanganan HUD glassmorphic dan retensi sesi lokal.",
         isFavorite: false,
         tags: ["Astro", "TypeScript", "Tailwind", "Engine"],
@@ -178,8 +178,8 @@ export const sections: LinkSection[] = [
       {
         id: "c-lync",
         projectNumber: "#11",
-        label: "C-Lync",
-        description: "SaaS otomatisasi WhatsApp berbasis Google AI Gemini dengan manajemen multi-tenant beraliran arsitektur Unified Monolith.",
+        label: "C Lync",
+        description: "Aplikasi web manajemen dan otomatisasi pesan atau grup WhatsApp. Dilengkapi fitur asisten cerdas berbasis Google AI Gemini untuk merangkum obrolan panjang (chat overload) secara otomatis dan asinkron.",
         isFavorite: true,
         tags: ["React", "Supabase RLS", "Gemini API Pro", "SaaS Utama"],
         links: [
