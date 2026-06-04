@@ -24,6 +24,9 @@
 .example/*
 .agents/
 .agents/*
+.agent
+.agent/
+.agent/*
 
 # OS files
 .DS_Store

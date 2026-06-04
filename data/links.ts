@@ -69,7 +69,7 @@ export const sections: LinkSection[] = [
       {
         id: "curzy-cloud",
         label: "Curzy Cloud",
-        url: "https://www.whatsapp.com/channel/0029Vb0n6QmFsn0df3zW6o3v",
+        url: "https://curzycloud.my.id/",
         icon: "fa-cloud",
         description: "Layanan Game Server Hosting (Minecraft Java/Bedrock) dan script custom automation yang beroperasi penuh pada periode 2024 - 2026. Platform ini memanfaatkan arsitektur Pterodactyl Panel, integrasi database Supabase Realtime, serta otomatisasi payment gateway berbasis Crypto (USDT BEP-20). Saat ini proyek telah selesai diarsipkan, dan seluruh aktivitas komunitas dialihkan ke Saluran WhatsApp resmi.",
         isExternal: true,
@@ -156,7 +156,7 @@ export const sections: LinkSection[] = [
         id: "4-mate",
         projectNumber: "#07",
         label: "4 Mate",
-        description: "Multi-platform media downloader bebas iklan dengan sirkuit forced-download memanfaatkan keunggulan Vercel Edge Runtime.",
+        description: "Multi-platform media downloader bebas iklan dan free bisa download Tiktok, Youtube, Spotify dan Instagram.",
         isFavorite: true,
         tags: ["Next.js", "TypeScript", "Vercel", "Web App"],
         links: [
@@ -189,7 +189,7 @@ export const sections: LinkSection[] = [
         id: "float-volume",
         projectNumber: "#10",
         label: "Float Volume",
-        description: "Aplikasi kontrol volume melayang bebas iklan untuk Android dengan pendekatan Material Design 3 dan Prestige-Safe Stealth Aesthetic.",
+        description: "Aplikasi Volume Control tanpa iklan dengan fitur samar yang cocok untuk menjaga gengsi agar ikon ngambang pengatur volume bisa menyamar, sehingga tidak ketahuan kalau tombol volume fisik perangkat sedang rusak.",
         isFavorite: true,
         tags: ["Linux", "Git", "Android App"],
         links: [
@@ -201,7 +201,7 @@ export const sections: LinkSection[] = [
         id: "c-lync",
         projectNumber: "#11",
         label: "C Lync",
-        description: "Aplikasi web manajemen dan otomatisasi pesan atau grup WhatsApp. Dilengkapi fitur asisten cerdas berbasis Google AI Gemini untuk merangkum obrolan panjang (chat overload) secara otomatis dan asinkron.",
+        description: "Aplikasi web ringkasan chat WhatsApp yang mampu meringkas seluruh isi pesan WhatsApp hanya dengan satu klik, lengkap dengan fitur pengiriman pesan otomatis secara gratis.",
         isFavorite: true,
         tags: ["React", "TypeScript", "Supabase", "SaaS Utama"],
         links: [
@@ -211,8 +211,8 @@ export const sections: LinkSection[] = [
       {
         id: "curzy-portfolio",
         projectNumber: "#12",
-        label: "Portfolio",
-        description: "Template premium mobile-first link hub dan portfolio developer statis dengan integrasi filter hierarki bertingkat.",
+        label: "Portofolio",
+        description: "Template premium mobile-first link hub dan portfolio developer statis alternatif lynk atau linktree yang gratis 100%.",
         isFavorite: true,
         tags: ["Next.js", "TypeScript", "Tailwind CSS", "Portfolio Hub"],
         links: [
