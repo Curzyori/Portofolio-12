@@ -1,7 +1,7 @@
 # Curzy: Premium Mobile Link Hub & Portfolio
 
 > Curzy adalah template premium mobile-first link hub dan portofolio developer bergaya **Terminal Glass**.
-> Demo live: [curzy.my.id](https://curzy.my.id) · Kode sumber terbuka dengan Lisensi MIT.
+> Demo live: [portofolio-12.curzy.dev](https://portofolio-12.curzy.dev/) · Kode sumber terbuka dengan Lisensi MIT.
 
 ---
 
