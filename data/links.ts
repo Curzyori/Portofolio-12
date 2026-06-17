@@ -181,7 +181,7 @@ export const sections: LinkSection[] = [
         isFavorite: false,
         tags: ["Next.js", "TypeScript", "Git", "Tools"],
         links: [
-          { type: "web", url: "https://checkip.curzy.my.id" },
+          { type: "web", url: "https://checkip.curzy.dev" },
           { type: "repo", url: "https://github.com/Curzyori/Check-IP-9" }
         ]
       },
@@ -216,8 +216,20 @@ export const sections: LinkSection[] = [
         isFavorite: true,
         tags: ["Next.js", "TypeScript", "Tailwind CSS", "Portfolio Hub"],
         links: [
-          { type: "web", url: "https://curzy.my.id" },
+          { type: "web", url: "https://portofolio-12.curzy.dev" },
           { type: "repo", url: "https://github.com/Curzyori/Portofolio-12" }
+        ]
+      },
+      {
+        id: "pharma-stock",
+        projectNumber: "#14",
+        label: "PharmaStock",
+        description: "Sistem Manajemen Inventaris & Keuangan Apotek berbasis Next.js 16 dan Supabase dengan isolasi data multi-role (RBAC + RLS) 100%, notifikasi stok kritis, serta pelacakan No. Batch & Expired.",
+        isFavorite: true,
+        tags: ["Next.js", "TypeScript", "Supabase", "SaaS"],
+        links: [
+          { type: "web", url: "https://pharma-stock.curzy.dev/" },
+          { type: "repo", url: "https://github.com/Curzyori/Pharma-Stock-14" }
         ]
       }
     ]

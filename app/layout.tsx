@@ -5,7 +5,7 @@ import "./globals.css";
 
 // ─── SEO Metadata ─────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Yuken Velino | curzy.my.id",
+  title: "Yuken Velino | curzy.dev",
   description: "Portfolio Hub",
   icons: {
     icon: "/avatar.jpg",
