@@ -78,6 +78,8 @@ const quickLinks = [
 export default function HomeTab() {
   const projectCount = sections.find((s) => s.id === "projects")?.items.length || 0;
   const certCount = sections.find((s) => s.id === "certificates")?.items.length || 0;
+  const totalProjects = 50;
+  const progressPercentage = Math.round((projectCount / totalProjects) * 100);
 
   return (
     <div className="space-y-4">
@@ -264,7 +266,7 @@ export default function HomeTab() {
             50 Projects Challenge
           </span>
           <span className="text-[11px] font-mono font-semibold text-[#818cf8]">
-            24% Completed
+            {progressPercentage}% Completed
           </span>
         </div>
 
@@ -273,7 +275,7 @@ export default function HomeTab() {
           <div
             className="h-full rounded-full"
             style={{
-              width: "24%",
+              width: `${progressPercentage}%`,
               background: "linear-gradient(to right, #5e6ad2, #818cf8)",
             }}
           />
@@ -283,7 +285,7 @@ export default function HomeTab() {
         <div className="grid grid-cols-3 gap-2 text-center text-[10px] font-mono">
           <div className="p-2 rounded bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
             <div className="text-neutral-500 mb-0.5">PROGRESS</div>
-            <div className="text-[#f4f4f6] font-semibold">12 / 50</div>
+            <div className="text-[#f4f4f6] font-semibold">{projectCount} / {totalProjects}</div>
           </div>
           <div className="p-2 rounded bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
             <div className="text-neutral-500 mb-0.5">DEADLINE</div>
@@ -291,7 +293,7 @@ export default function HomeTab() {
           </div>
           <div className="p-2 rounded bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
             <div className="text-neutral-500 mb-0.5">UPDATED</div>
-            <div className="text-[#f4f4f6] font-semibold">3 Jun 2026</div>
+            <div className="text-[#f4f4f6] font-semibold">17 Jun 2026</div>
           </div>
         </div>
       </div>

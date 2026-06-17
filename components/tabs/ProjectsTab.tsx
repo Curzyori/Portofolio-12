@@ -150,7 +150,11 @@ export default function ProjectsTab() {
 
   if (!projectsSection) return null;
 
-  const projectItems = projectsSection.items as ProjectItem[];
+  const projectItems = [...projectsSection.items].sort((a, b) => {
+    const numA = parseInt((a as ProjectItem).projectNumber.replace('#', ''));
+    const numB = parseInt((b as ProjectItem).projectNumber.replace('#', ''));
+    return numB - numA;
+  }) as ProjectItem[];
 
   const displayedItems = projectItems.filter((item) => {
     if (filter === "fav") return item.isFavorite;

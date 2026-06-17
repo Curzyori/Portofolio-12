@@ -221,6 +221,17 @@ export const sections: LinkSection[] = [
         ]
       },
       {
+        id: "github-searcher",
+        projectNumber: "#13",
+        label: "Github Searcher",
+        description: "Alat baris perintah (CLI) berbasis Python asinkron untuk mencari repositori dan memindai kode di GitHub dengan Dual-Engine (Auto Pilot & Fast Skip).",
+        isFavorite: true,
+        tags: ["Python", "Git", "Scraper", "CLI Tool"],
+        links: [
+          { type: "repo", url: "https://github.com/Curzyori/Github-Searcher-13" }
+        ]
+      },
+      {
         id: "pharma-stock",
         projectNumber: "#14",
         label: "PharmaStock",
