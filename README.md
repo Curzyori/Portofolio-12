@@ -31,21 +31,19 @@
 
 ## 🕒 Why Curzy?
 
-Curzy adalah template premium mobile-first link hub dan portofolio developer bergaya **Terminal Glass** — terinspirasi dari detail antarmuka produk seperti Raycast, Linear, dan Apple.
+Curzy is a premium mobile-first link hub and portfolio template for developers with a **Terminal Glass** aesthetic — inspired by products like Raycast, Linear, and Apple.
 
-### Masalah (Problem)
+### The Problem
 
-Bagi seorang developer, layanan link hub gratisan seperti Linktree sering memiliki fitur terbatas dan tidak memiliki estetika khas developer.
+Free link hub services like Linktree often have limited features and lack the distinctive character developers want. On the other hand, building a full-stack portfolio from scratch requires database maintenance, complex API setup, and monthly server costs.
 
-Di sisi lain, membangun situs portofolio full-stack dari nol butuh usaha pemeliharaan database, penyiapan API kompleks, serta biaya server bulanan.
+### The Solution
 
-### Solusi (Solution)
+Curzy solves this: a premium mobile-first link hub that is **100% static with no backend or API required**.
 
-Curzy hadir sebagai solusi: premium mobile-first link hub yang **100% static tanpa backend atau API**.
-
-- Sangat ringan, memuat halaman secara instan
-- Biaya perawatan nol rupiah (zero maintenance)
-- Pengalaman interaktif tinggi layaknya aplikasi mobile native
+- Extremely lightweight, instant page loads
+- Zero maintenance cost
+- Highly interactive experience like a native mobile app
 
 ---
 
@@ -53,13 +51,13 @@ Curzy hadir sebagai solusi: premium mobile-first link hub yang **100% static tan
 
 | Feature | Status | Description |
 | :--- | :---: | :--- |
-| **100% Mobile-First** | ✅ | Dioptimalkan untuk 70%+ pengunjung yang pakai HP |
-| **Terminal Glass UI** | ✅ | Tema visual gelap kelas atas (Raycast, Linear inspired) |
+| **100% Mobile-First** | ✅ | Optimized for 70%+ visitors on mobile devices |
+| **Terminal Glass UI** | ✅ | Premium dark theme inspired by Raycast, Linear, Apple |
 | **5-Tabs Navigation** | ✅ | Home, Bisnis, Projects, Sertifikat, Contact |
-| **Dynamic Content Filter** | ✅ | Filter "All vs Fav" pada tab Projects |
-| **Consistency Index** | ✅ | Nomor urut proyek tetap terkunci saat filter aktif |
-| **Graceful Empty State** | ✅ | Tampilan kosong yang bersih untuk kategori kosong |
-| **SEO & Aksesibilitas** | ✅ | Static prerender, HTML semantik, tag meta lengkap |
+| **Dynamic Content Filter** | ✅ | "All vs Fav" filter on Projects tab |
+| **Consistency Index** | ✅ | Project numbers stay locked during filtering |
+| **Graceful Empty State** | ✅ | Clean feedback for empty categories |
+| **SEO & Accessibility** | ✅ | Static prerender, semantic HTML, complete meta tags |
 
 ---
 
@@ -67,16 +65,16 @@ Curzy hadir sebagai solusi: premium mobile-first link hub yang **100% static tan
 
 | Technology | Why |
 | :--------- | :-- |
-| **Next.js (App Router)** | Static content prerender, waktu muat < 1 detik, SEO max |
-| **Tailwind CSS** | Implementasi Terminal Glass theme secara efisien |
-| **TypeScript** | Tipe data aman dari error saat kompilasi |
+| **Next.js (App Router)** | Static content prerender, < 1s load time, max SEO |
+| **Tailwind CSS** | Efficient Terminal Glass theme implementation |
+| **TypeScript** | Type-safe links, projects, and certificates data |
 
 ---
 
 ## 🚀 Quick Start
 
-### Prasyarat
-Pastikan Anda sudah menginstal Node.js (v18+) dan npm.
+### Prerequisites
+Make sure you have Node.js (v18+) and npm installed.
 
 ### Clone & Install
 
@@ -86,23 +84,23 @@ cd portofolio-template
 npm install
 ```
 
-### Jalankan Server Pengembangan
+### Run Development Server
 
 ```bash
 npm run dev
 ```
 
-Buka [http://localhost:3000](http://localhost:3000) di browser Anda untuk melihat hasilnya.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Kustomisasi Data
+### Customizing Data
 
-Anda **tidak perlu mengubah kode UI**. Cukup edit file:
+You **do not need to modify UI code**. Simply edit:
 
 ```
 data/links.ts
 ```
 
-Ubah properti objek di dalam file tersebut sesuai informasi Anda — Next.js akan update otomatis.
+Update the object properties with your own information — Next.js will refresh automatically.
 
 ---
 
@@ -121,7 +119,7 @@ Ubah properti objek di dalam file tersebut sesuai informasi Anda — Next.js aka
 
 ## 📄 License
 
-Proyek ini dilisensikan di bawah **MIT License** — kode sumber terbuka, bebas digunakan untuk keperluan pribadi maupun komersial.
+This project is released under the **MIT License** — fully open source, free to use for personal and commercial purposes.
 
 ```text
 MIT License
