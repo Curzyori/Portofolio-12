@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="images/web.gif" alt="Curzy Preview" width="100%"/>
-</p>
-
 <h1 align="center">Curzy</h1>
 <p align="center">
   <strong>Premium Mobile Link Hub & Portfolio</strong>
