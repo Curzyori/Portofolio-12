@@ -1,86 +1,127 @@
-# Curzy: Premium Mobile Link Hub & Portfolio
+<p align="center">
+  <img src="images/web.gif" alt="Curzy Preview" width="100%"/>
+</p>
 
-> Curzy adalah template premium mobile-first link hub dan portofolio developer bergaya **Terminal Glass**.
-> Demo live: [portofolio-12.curzy.dev](https://portofolio-12.curzy.dev/) · Kode sumber terbuka dengan Lisensi MIT.
+<h1 align="center">Curzy</h1>
+<p align="center">
+  <strong>Premium Mobile Link Hub & Portfolio</strong>
+</p>
 
----
+<p align="center">
+  <a href="https://portofolio-12.curzy.dev/"><strong>🌐 Live Demo</strong></a>
+</p>
 
-## Masalah (Problem)
+<div align="center">
 
-Bagi seorang developer, layanan link hub gratisan seperti Linktree atau Lynk sering kali memiliki fitur yang terbatas dan tidak memiliki estetika atau karakter khas seorang developer. 
+[![Stars](https://img.shields.io/github/stars/Curzyori/portofolio-template?style=for-the-badge&color=teal)](https://github.com/Curzyori/portofolio-template/stargazers)
+[![Forks](https://img.shields.io/github/forks/Curzyori/portofolio-template?style=for-the-badge&color=teal)](https://github.com/Curzyori/portofolio-template/network/members)
+[![License](https://img.shields.io/badge/License-MIT-gold?style=for-the-badge)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Static-black?style=for-the-badge)](#)
 
-Di sisi lain, membangun situs portofolio full-stack tradisional dari nol sering kali membutuhkan usaha pemeliharaan database, penyiapan API yang kompleks, serta biaya sewa server bulanan. Kendala-kendala administratif ini sering kali membuat pengembang malas untuk menyelesaikan dan memperbarui portofolio mereka sendiri.
+</div>
 
-## Solusi (Solution)
-
-**Curzy** hadir sebagai solusi: sebuah premium mobile-first link hub yang 100% static tanpa backend atau API. 
-
-Situs ini sangat ringan, memuat halaman secara instan, dan membutuhkan biaya perawatan nol rupiah (zero maintenance). Meskipun sepenuhnya statis, Curzy tetap menyajikan pengalaman interaktif tinggi layaknya aplikasi mobile native berkat optimasi state React lokal yang cepat dan responsif.
-
-## Fitur Utama (Features)
-
-* **100% Mobile-First Responsive Design:** Dioptimalkan secara khusus untuk menjamin kenyamanan navigasi bagi lebih dari 70% pengunjung yang menggunakan layar HP.
-* **Premium Terminal Glass UI Theme:** Tema visual gelap kelas atas yang terinspirasi dari detail antarmuka produk seperti Raycast, Linear, dan Apple.
-* **5-Tabs Navigation System:** Navigasi 5 tab lengkap (Home, Bisnis, Projects, Sertifikat, Contact) menggunakan state management lokal yang halus.
-* **Dynamic Content Filter:** Filter pencarian lokal "All vs Fav" pada tab Projects serta filter skala "All vs Nasional vs Internasional" pada tab Sertifikat.
-* **Consistency Index Numbering:** Indeks nomor urut proyek (seperti #01 sampai #12) tetap terkunci rapi sesuai urutan aslinya meskipun data sedang difilter.
-* **Graceful Empty State:** Penanganan tampilan kosong yang bersih dan informatif untuk kategori filter yang belum memiliki aset.
-* **Aksesibilitas & SEO Friendly:** Lolos pengujian Next.js static prerender dengan optimasi struktur HTML semantik, akses keyboard, serta tag meta SEO lengkap.
-
----
-
-## Tech Stack & Alasan Pemilihan
-
-### 1. Next.js (App Router)
-* **Alasan:** Digunakan untuk mem-prerender halaman menjadi Static Content. Hal ini membuat waktu muat halaman berada di bawah 1 detik dan memaksimalkan optimasi mesin pencari (SEO) tanpa memerlukan server dinamis saat dijalankan.
-
-### 2. Tailwind CSS
-* **Alasan:** Memungkinkan implementasi token desain visual bergaya "Terminal Glass" (seperti hairline border halus, grid layout, dan backdrop blur) secara cepat, konsisten, dan sangat efisien dalam ukuran bundel akhir.
-
-### 3. TypeScript
-* **Alasan:** Menjamin tipe data link, project, dan sertifikat aman dari kesalahan pengetikan atau struktur properti yang tidak sesuai selama proses kompilasi produksi.
+<p align="center">
+  <a href="#-why-curzy">Why This</a> ·
+  <a href="#-key-features">Features</a> ·
+  <a href="#-tech-stack">Tech Stack</a> ·
+  <a href="#-quick-start">Quick Start</a>
+</p>
 
 ---
 
-## Panduan Memulai (Getting Started)
+## 🕒 Why Curzy?
 
-Ikuti langkah-langkah di bawah ini untuk menjalankan proyek ini secara lokal di komputer Anda:
+Curzy adalah template premium mobile-first link hub dan portofolio developer bergaya **Terminal Glass** — terinspirasi dari detail antarmuka produk seperti Raycast, Linear, dan Apple.
+
+### Masalah (Problem)
+
+Bagi seorang developer, layanan link hub gratisan seperti Linktree sering memiliki fitur terbatas dan tidak memiliki estetika khas developer.
+
+Di sisi lain, membangun situs portofolio full-stack dari nol butuh usaha pemeliharaan database, penyiapan API kompleks, serta biaya server bulanan.
+
+### Solusi (Solution)
+
+Curzy hadir sebagai solusi: premium mobile-first link hub yang **100% static tanpa backend atau API**.
+
+- Sangat ringan, memuat halaman secara instan
+- Biaya perawatan nol rupiah (zero maintenance)
+- Pengalaman interaktif tinggi layaknya aplikasi mobile native
+
+---
+
+## 🎯 Key Features
+
+| Feature | Status | Description |
+| :--- | :---: | :--- |
+| **100% Mobile-First** | ✅ | Dioptimalkan untuk 70%+ pengunjung yang pakai HP |
+| **Terminal Glass UI** | ✅ | Tema visual gelap kelas atas (Raycast, Linear inspired) |
+| **5-Tabs Navigation** | ✅ | Home, Bisnis, Projects, Sertifikat, Contact |
+| **Dynamic Content Filter** | ✅ | Filter "All vs Fav" pada tab Projects |
+| **Consistency Index** | ✅ | Nomor urut proyek tetap terkunci saat filter aktif |
+| **Graceful Empty State** | ✅ | Tampilan kosong yang bersih untuk kategori kosong |
+| **SEO & Aksesibilitas** | ✅ | Static prerender, HTML semantik, tag meta lengkap |
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Why |
+| :--------- | :-- |
+| **Next.js (App Router)** | Static content prerender, waktu muat < 1 detik, SEO max |
+| **Tailwind CSS** | Implementasi Terminal Glass theme secara efisien |
+| **TypeScript** | Tipe data aman dari error saat kompilasi |
+
+---
+
+## 🚀 Quick Start
 
 ### Prasyarat
-Pastikan Anda sudah menginstal Node.js (versi 18 ke atas) dan npm di perangkat Anda.
+Pastikan Anda sudah menginstal Node.js (v18+) dan npm.
 
-### 1. Klon Repositori
-```bash
-git clone https://github.com/Curzyori/Portofolio-12.git
-cd Portofolio-12
-```
+### Clone & Install
 
-### 2. Instal Dependensi
 ```bash
+git clone https://github.com/Curzyori/portofolio-template.git
+cd portofolio-template
 npm install
 ```
 
-### 3. Jalankan Server Pengembangan
+### Jalankan Server Pengembangan
+
 ```bash
 npm run dev
 ```
+
 Buka [http://localhost:3000](http://localhost:3000) di browser Anda untuk melihat hasilnya.
 
-### Single Source of Truth: Cara Kustomisasi
+### Kustomisasi Data
 
-Proyek ini dirancang agar mudah digunakan kembali oleh developer lain. Anda **tidak perlu mengubah kode komponen antarmuka (UI)** sama sekali. 
+Anda **tidak perlu mengubah kode UI**. Cukup edit file:
 
-Untuk menyesuaikan isi data profil, tautan bisnis, daftar proyek, hingga PDF sertifikat, Anda **cukup mengubah isi data** pada file:
 ```
 data/links.ts
 ```
-Ubah properti objek di dalam file tersebut sesuai dengan informasi pribadi Anda, simpan file, dan Next.js akan memperbarui halaman secara otomatis.
+
+Ubah properti objek di dalam file tersebut sesuai informasi Anda — Next.js akan update otomatis.
 
 ---
 
-## Lisensi (MIT License)
+## 🖼️ Preview
 
-Proyek ini dilisensikan di bawah **MIT License** (Lisensi MIT). Kode sumber ini sepenuhnya terbuka (open source), bebas digunakan, dimodifikasi, dan didistribusikan untuk keperluan pribadi maupun komersial.
+<table align="center">
+  <tr>
+    <td align="center"><b>Web App Preview</b></td>
+  </tr>
+  <tr>
+    <td><img src="images/web.gif" width="250" alt="Curzy Portfolio Demo"/></td>
+  </tr>
+</table>
+
+---
+
+## 📄 License
+
+Proyek ini dilisensikan di bawah **MIT License** — kode sumber terbuka, bebas digunakan untuk keperluan pribadi maupun komersial.
 
 ```text
 MIT License
@@ -99,9 +140,23 @@ copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 ```
+
+---
+
+## 🔗 Connect
+
+<p align="center">
+  <a href="https://github.com/Curzyori">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
+  </a>
+  <a href="https://curzy.dev">
+    <img src="https://img.shields.io/badge/Portfolio-58A6FF?style=for-the-badge"/>
+  </a>
+  <a href="https://linkedin.com/in/curzy">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  </a>
+</p>
+
+<sub>Built with passion as the 12th Project of the <strong>50 Projects Challenge</strong> by <strong>@curzyori</strong></sub>
