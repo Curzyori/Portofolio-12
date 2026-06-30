@@ -133,4 +133,17 @@ This project is released under the **MIT License** — fully open source, free t
   </a>
 </p>
 
+
+
+## ☕ Support
+
+If this project is useful, consider supporting its development!
+
+<p align="center">
+  <a href="https://donate.curzy.dev/"><strong>💝 Donate via Crypto or QRIS</strong></a>
+</p>
+
+Crypto payment details are maintained at [donate.curzy.dev](https://donate.curzy.dev/).
+
 <sub>Built with passion as the 12th Project of the <strong>50 Projects Challenge</strong> by <strong>@curzyori</strong></sub>
+
